@@ -1,0 +1,12 @@
+const express = require('express');
+const app = express();
+app.use(express.json());
+const cors = require('cors');
+app.use(cors());
+const jwt = require('jsonwebtoken');
+const authMiddleware = (req, res, next) => { /* JWT Logic */ next(); };
+app.post('/name', (req, res) => res.json({}));
+app.get('', (req, res) => res.json({}));
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/testDB');
+app.listen(3000, () => console.log('Server running on port 3000'));
